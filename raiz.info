@@ -1,0 +1,46 @@
+name        = Raíz
+description = Tema Base
+engine      = phptemplate
+core        = 7.x
+
+; REGIONS
+;-----------------------------------------------------------
+
+regions[page_top]            = Page top
+regions[page_bottom]         = Page bottom
+
+regions[utility_bar]         = Utility Bar
+regions[header]              = Header
+regions[navigation]          = Navigation
+
+regions[featured]            = Featured
+
+regions[above_main]          = Above main
+
+regions[highlighted]         = Highlighted
+regions[help]                = Help
+regions[content]             = Content
+regions[sidebar_first]       = Sidebar first
+regions[sidebar_second]      = Sidebar second
+
+regions[below_main]          = Below main
+
+regions[triptych_first]      = Triptych first
+regions[triptych_middle]     = Triptych middle
+regions[triptych_last]       = Triptych last
+
+regions[footer_firstcolumn]  = Footer first column
+regions[footer_secondcolumn] = Footer second column
+regions[footer_thirdcolumn]  = Footer third column
+regions[footer_fourthcolumn] = Footer fourth column
+regions[footer]              = Footer
+
+; CSS
+;-----------------------------------------------------------
+stylesheets[all][] = css/normalize.css
+stylesheets[all][] = css/style.css
+
+; JS
+;-----------------------------------------------------------
+scripts[] = js/vendor/modernizr.js
+scripts[] = js/custom.js

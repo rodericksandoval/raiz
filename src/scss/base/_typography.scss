@@ -1,0 +1,50 @@
+/**
+ * Typography
+ **************************************/
+
+// Global
+//------------------
+body {
+  font-family: $font-family-text;
+  color: $color-text;
+}
+
+// Paragraph
+//------------------
+p {}
+
+// Links
+//------------------
+a:link, a:active, a:visited {
+  transition: all 250ms ease-in-out;
+  color: $color-link;
+  text-decoration: none;
+  &:hover, &:active {
+    color: $color-link-hover;
+  }
+}
+
+// Headers
+//------------------
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-header;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+// Quotes
+//------------------
+blockquote {}

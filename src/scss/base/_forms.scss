@@ -1,0 +1,72 @@
+/**
+ * Forms
+ **************************************/
+
+// Fieldsets
+//------------------
+// fieldset {
+//   //@include border-radius(5px);
+//   border: 1px solid #aaa !important;
+// }
+
+// .fieldset-title {
+//   font-weight: 600;
+// }
+
+// div.vertical-tabs {
+//   border: 0;
+// }
+
+// Input
+//------------------
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea,
+.recaptcha_input_area input[type="text"] {
+  //@include border-radius(5px);
+  padding: 2px 0px 2px 5px;
+  border: 1px solid #aaa !important;
+  // min-height: 30px;
+  &:focus {}
+}
+
+.resizable-textarea .grippie {
+  border: 0;
+  background: none;
+}
+
+// Captcha
+//------------------
+fieldset.captcha {
+  padding: 0;
+  border: 0;
+  img#recaptcha_logo,
+  .fieldset-legend {
+    display: none;
+  }
+  .fieldset-description {
+    padding: 10px 0;
+  }
+}
+
+// Views
+//------------------
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin: 0;
+}
+
+// Webform
+//------------------
+.node-type-webform {
+  .recaptchatable,
+  .recaptchatable #recaptcha_image {
+    border: 0 !important;
+  }
+}
+
+.marker, .form-required {
+  color: red;
+}

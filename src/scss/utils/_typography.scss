@@ -1,0 +1,46 @@
+// Typography
+//----------------------------------------------------------
+
+// Vertical rhythm
+//------------------
+$base-font-size: 16px;
+$base-line-height: 24px;
+$rhythm-unit: "rem";
+
+// Base font size
+//------------------
+// @include establish-baseline($base-font-size);
+
+// Font sizes
+//------------------
+$font-size-xs: 13px;
+$font-size-s: 14px;
+$font-size-r: 16px;
+$font-size-l: 24px;
+$font-size-xl: 32px;
+$font-size-xxl: 48px;
+
+// Font weights
+//------------------
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-ultrabold: 900;
+
+// Custom fonts
+//------------------
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200italic,300,300italic,400,400italic,600,600italic,700,700italic,900,900italic);
+
+$source-sans: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Font Families
+//------------------
+// $font-family-main:
+// $font-family-complementary:
+// $font-family-primary:
+// $font-family-secondary:
+$font-family-text: $source-sans;
+$font-family-header: $source-sans;

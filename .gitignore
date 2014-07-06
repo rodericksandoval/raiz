@@ -1,0 +1,21 @@
+# Ignore .sass-cache:
+.sass-cache
+/scss/.sass-cache
+/src/scss/.sass-cache
+
+# Ignore Gemfile.lock:
+Gemfile.lock
+/scss/Gemfile.lock
+/src/scss/Gemfile.lock
+
+# Ignore Node.js modules
+node_modules
+/scss/node_modules
+/src/scss/node_modules
+
+# Ignore OS generated files
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*

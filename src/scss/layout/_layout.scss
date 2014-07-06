@@ -1,0 +1,189 @@
+/**
+ * Global
+ **************************************/
+.l-page {
+  overflow: hidden;
+  border: solid $black;
+  border-width: 10px 0;
+}
+
+.l-contained {
+  @extend %container;
+  @extend %fluid-img;
+}
+
+.l-wrapper {
+  padding: $space-v 0;
+}
+
+// Header
+//------------------
+
+.l-utility-bar-wrapper {
+  background: #bbb;
+}
+
+.l-header-wrapper {
+  background: #ccc;
+}
+
+.l-header {}
+
+.l-branding {
+  @extend %fluid-img;
+  float: left;
+  width: 100px;
+  // @include span(2);
+}
+
+.l-region-header {
+  // @include span(last 10);
+}
+
+.l-navigation {
+  // @include span(last 10);
+  // float: right;
+}
+
+// Featured
+//------------------
+.l-featured-wrapper {
+  background: #ddd;
+}
+
+.l-region-featured {
+  @extend %wide-container;
+}
+
+// Main
+//------------------
+.l-above-main-wrapper {
+  background: #eee;
+}
+
+.l-main-wrapper {
+  // background: #eee;
+}
+
+.l-main {
+  margin-top: $space-v;
+  margin-bottom: $space-v;
+}
+
+.l-below-main-wrapper {
+  background: #eee;
+}
+
+// Triptych
+//------------------
+.l-triptych-wrapper {
+  background: #ddd;
+}
+
+// Footer
+//------------------
+.l-footer-columns-wrapper {
+  background: #ccc;
+}
+
+.l-footer-wrapper {
+  background: #bbb;
+}
+
+.l-footer {}
+
+.l-region-footer {
+  @include span(full);
+}
+
+/**
+ * Narrow
+ **************************************/
+@include respond-to(narrow) {
+  .l-navigation {
+    // @include span(full);
+    // clear: both;
+
+  }
+  .sidebar-first,
+  .sidebar-second,
+  .two-sidebars {
+    .l-main-content {
+      @include span(8);
+    }
+    .l-sidebar-first,
+    .l-sidebar-second {
+      @include span(last 4);
+    }
+    .l-sidebar-second {
+      clear: right;
+    }
+  }
+  .l-region-triptych-first,
+  .l-region-triptych-middle {
+    @include span(4);
+  }
+  .l-region-triptych-last {
+    @include span(last 4);
+  }
+  .l-region-footer-firstcolumn,
+  .l-region-footer-secondcolumn,
+  .l-region-footer-thirdcolumn {
+    @include span(3);
+  }
+  .l-region-footer-fourthcolumn {
+    @include span(last 3);
+  }
+}
+
+
+/**
+ * Normal
+ **************************************/
+@include respond-to(normal) {
+  .sidebar-first {
+    .l-main-content {
+      @include span(last 9);
+      @include prefix(0.5);
+    }
+    .l-sidebar-first {
+      @include span(3);
+      @include suffix(0.25);
+    }
+  }
+  .sidebar-second {
+    .l-main-content {
+      @include span(9);
+      @include suffix(0.5);
+      border-right: 1px solid $silver;
+    }
+    .l-sidebar-second {
+      @include span(last 3);
+      @include prefix(0.25);
+      clear: none;
+    }
+  }
+  .two-sidebars {
+    .l-main-content {
+      @include span(6);
+      @include push(3);
+    }
+    .l-sidebar-first,
+    .l-sidebar-second {
+      @include span(3);
+    }
+    .l-sidebar-first {
+      @include pull(9);
+    }
+    .l-sidebar-second {
+      @include last;
+      clear: none;
+    }
+  }
+}
+
+
+// /**
+//  * Wide
+//  *************************************
+// @include respond-to(wide) {}
