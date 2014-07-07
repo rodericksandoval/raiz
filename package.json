@@ -9,6 +9,8 @@
     "gulp-notify": "^1.4.0",
     "gulp-ruby-sass": "^0.5.0",
     "gulp-shell": "^0.2.7",
+    "gulp-svg2png": "^0.2.3",
+    "gulp-svgmin": "^0.4.6",
     "gulp-uglify": "^0.3.1"
   }
 }
