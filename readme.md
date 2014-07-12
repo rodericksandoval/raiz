@@ -25,7 +25,7 @@ http://nodejs.org/
 
 #### Instalar dependencias
 
-Ejecutar en la carpeta raíz del tema:
+Ejecutar en la carpeta src del tema:
 
     npm install
 
@@ -45,7 +45,7 @@ Ejecutar en la carpeta raíz del tema:
 
 #### Instalar dependencias
 
-Ejecutar en la carpeta raíz del tema:
+Ejecutar en la carpeta src del tema:
 
     bundle install
 

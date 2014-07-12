@@ -1,8 +1,0 @@
-# Ignore .sass-cache:
-.sass-cache
-
-# Ignore Gemfile.lock:
-Gemfile.lock
-
-# Ignore node modules
-node_modules

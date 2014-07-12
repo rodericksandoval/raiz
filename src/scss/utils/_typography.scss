@@ -9,7 +9,7 @@ $rhythm-unit: "rem";
 
 // Base font size
 //------------------
-// @include establish-baseline($base-font-size);
+@include establish-baseline($base-font-size);
 
 // Font sizes
 //------------------

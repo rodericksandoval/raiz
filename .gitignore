@@ -1,17 +1,11 @@
 # Ignore .sass-cache:
-.sass-cache
-/scss/.sass-cache
-/src/scss/.sass-cache
+/src/.sass-cache
 
 # Ignore Gemfile.lock:
-Gemfile.lock
-/scss/Gemfile.lock
-/src/scss/Gemfile.lock
+/src/Gemfile.lock
 
 # Ignore Node.js modules
-node_modules
-/scss/node_modules
-/src/scss/node_modules
+/src/node_modules
 
 # Ignore OS generated files
 .DS_Store*
