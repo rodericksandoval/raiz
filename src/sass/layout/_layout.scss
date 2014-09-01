@@ -1,0 +1,169 @@
+//----------------------------------------------------------
+//----------------------------------------------------------
+// GLOBAL
+//----------------------------------------------------------
+//----------------------------------------------------------
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.l-page {
+  @extend %container;
+}
+
+.l-utility-bar,
+.l-navigation,
+.l-featured,
+.l-above-main,
+.l-below-main,
+.l-triptych,
+.l-footer-columns,
+.l-footer {
+  @extend %wide;
+}
+
+// Top
+//--------------------------------------
+.l-utility-bar {
+  @include bg-img(bg-test);
+}
+
+.l-branding {}
+
+.l-header-region {}
+
+.l-navigation {}
+
+// Main
+//--------------------------------------
+.l-featured {}
+
+.l-above-main {}
+
+.l-main {}
+
+.l-below-main {}
+
+// Bottom
+//--------------------------------------
+.l-triptych {}
+
+.l-footer-columns {}
+
+.l-footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #444;
+  a {
+    color: #fff;
+  }
+}
+
+//----------------------------------------------------------
+//----------------------------------------------------------
+// NARROW
+//----------------------------------------------------------
+//----------------------------------------------------------
+@include respond-to(narrow) {
+  .l-branding {
+    float: left;
+  }
+  .l-header-region {
+    float: right;
+  }
+  .sidebar-first,
+  .sidebar-second,
+  .two-sidebars {
+    .l-main-content {
+      @include span(8);
+    }
+    .l-sidebar-first,
+    .l-sidebar-second {
+      @include span(last 4);
+    }
+    .l-sidebar-second {
+      clear: right;
+    }
+  }
+  .l-triptych-first,
+  .l-triptych-middle {
+    @include span(4);
+  }
+  .l-triptych-last {
+    @include span(last 4);
+  }
+  .l-footer-firstcolumn,
+  .l-footer-thirdcolumn {
+    @include span(6);
+  }
+  .l-footer-secondcolumn,
+  .l-footer-fourthcolumn {
+    @include span(last 6);
+  }
+}
+
+
+//----------------------------------------------------------
+//----------------------------------------------------------
+// NORMAL
+//----------------------------------------------------------
+//----------------------------------------------------------
+@include respond-to(normal) {
+  .sidebar-first {
+    .l-main-content {
+      @include span(last 9);
+      @include prefix(0.5);
+    }
+    .l-sidebar-first {
+      @include span(3);
+      @include suffix(0.25);
+    }
+  }
+  .sidebar-second {
+    .l-main-content {
+      @include span(9);
+      @include suffix(0.5);
+      border-right: 1px solid;
+    }
+    .l-sidebar-second {
+      @include span(last 3);
+      @include prefix(0.25);
+      clear: none;
+    }
+  }
+  .two-sidebars {
+    .l-main-content {
+      @include span(6);
+      @include push(3);
+    }
+    .l-sidebar-first,
+    .l-sidebar-second {
+      @include span(3);
+    }
+    .l-sidebar-first {
+      @include pull(9);
+    }
+    .l-sidebar-second {
+      @include last;
+      clear: none;
+    }
+  }
+  .l-footer-firstcolumn,
+  .l-footer-secondcolumn,
+  .l-footer-thirdcolumn {
+    @include span(3);
+  }
+  .l-footer-fourthcolumn {
+    @include span(last 3);
+  }
+}
+
+
+//----------------------------------------------------------
+//----------------------------------------------------------
+// WIDE
+//----------------------------------------------------------
+//----------------------------------------------------------
+// @include respond-to(wide) {}

@@ -1,19 +1,12 @@
 // PLUGINS
 //----------------------------------------------------------
-@import "susy";
 @import "compass";
-
-// TOOLS
-//----------------------------------------------------------
-@import "utils/grid";
-@import "utils/typography";
-@import "utils/color";
-@import "utils/placeholders";
-@import "utils/mixins";
+@import "susy";
 
 /**
  * BASE
  **********************************************************/
+@import "base/tools";
 @import "base/typography";
 @import "base/media";
 @import "base/lists";
@@ -29,7 +22,5 @@
  **********************************************************/
 @import "components/navigation";
 @import "components/pages";
-@import "components/views";
 @import "components/blocks";
-@import "components/search";
 @import "components/misc";

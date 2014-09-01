@@ -1,0 +1,48 @@
+// Global
+//--------------------------------------
+body {
+  font-family: $roboto;
+  font-weight: 300;
+  color: #444;
+}
+
+// Paragraph
+//--------------------------------------
+p {}
+
+// Links
+//--------------------------------------
+a:link, a:active, a:visited {
+  transition: all 250ms ease-in-out;
+  // color: magenta;
+  text-decoration: none;
+  &:hover, &:active {
+    // color: cyan;
+
+  }
+}
+
+// Headers
+//--------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  // font-family:
+  // font-weight:
+  font-style: normal;
+  line-height: 1.2;
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+// Quotes
+//--------------------------------------
+blockquote {}

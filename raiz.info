@@ -3,44 +3,75 @@ description = Tema Base
 engine      = phptemplate
 core        = 7.x
 
+;-----------------------------------------------------------
 ; REGIONS
 ;-----------------------------------------------------------
 
-regions[page_top]            = Page top
-regions[page_bottom]         = Page bottom
+regions[page_top]             = Page top
+regions[page_bottom]          = Page bottom
 
-regions[utility_bar]         = Utility Bar
-regions[header]              = Header
-regions[navigation]          = Navigation
+regions[utility_bar]          = Utility Bar
+regions[header]               = Header
+regions[navigation]           = Navigation
 
-regions[featured]            = Featured
+regions[featured]             = Featured
+regions[above_main]           = Above main
 
-regions[above_main]          = Above main
+regions[help]                 = Help
+regions[highlighted]          = Highlighted
 
-regions[highlighted]         = Highlighted
-regions[help]                = Help
-regions[content]             = Content
-regions[sidebar_first]       = Sidebar first
-regions[sidebar_second]      = Sidebar second
+regions[content]              = Content
+regions[sidebar_first]        = Sidebar first
+regions[sidebar_second]       = Sidebar second
 
-regions[below_main]          = Below main
+regions[below_main]           = Below main
 
-regions[triptych_first]      = Triptych first
-regions[triptych_middle]     = Triptych middle
-regions[triptych_last]       = Triptych last
+regions[triptych_first]       = Triptych first
+regions[triptych_middle]      = Triptych middle
+regions[triptych_last]        = Triptych last
 
-regions[footer_firstcolumn]  = Footer first column
-regions[footer_secondcolumn] = Footer second column
-regions[footer_thirdcolumn]  = Footer third column
-regions[footer_fourthcolumn] = Footer fourth column
-regions[footer]              = Footer
+regions[footer_firstcolumn]   = Footer first column
+regions[footer_secondcolumn]  = Footer second column
+regions[footer_thirdcolumn]   = Footer third column
+regions[footer_fourthcolumn]  = Footer fourth column
+regions[footer]               = Footer
 
+;-----------------------------------------------------------
+; BREAKPOINTS
+;-----------------------------------------------------------
+breakpoints[mobile] = (min-width: 400px)
+breakpoints[narrow] = (min-width: 768px)
+breakpoints[normal] = (min-width: 960px)
+breakpoints[wide]   = (min-width: 1080px)
+
+;-----------------------------------------------------------
 ; CSS
 ;-----------------------------------------------------------
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/style.css
 
+;-----------------------------------------------------------
 ; JS
 ;-----------------------------------------------------------
-scripts[] = js/vendor/modernizr.js
-scripts[] = js/custom.js
+scripts[] = js/modernizr.js
+scripts[] = js/scripts.js
+
+;-----------------------------------------------------------
+; SETTINGS
+;-----------------------------------------------------------
+settings[default_favicon] = '1'
+settings[default_logo] = '0'
+settings[favicon_path] = ''
+settings[favicon_upload] = ''
+settings[logo_path] = ''
+settings[logo_upload] = ''
+
+settings[toggle_comment_user_picture] = '0'
+settings[toggle_comment_user_verification] = '0'
+settings[toggle_favicon] = '1'
+settings[toggle_logo] = '0'
+settings[toggle_name] = '1'
+settings[toggle_slogan] = '0'
+settings[toggle_main_menu] = '0'
+settings[toggle_secondary_menu] = '0'
+settings[toggle_node_user_picture] = '0'

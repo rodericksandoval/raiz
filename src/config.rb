@@ -2,13 +2,14 @@
 require 'susy'
 
 # Resources
-sass_dir        = "scss"
+sass_dir        = "sass"
 css_dir         = "../css"
 images_dir      = "../img"
 javascripts_dir = "../js"
+fonts_dir       = "../fonts"
 
 # Paths
-relative_assets = true
+# relative_assets = true
 
 # Debugging
 # line_comments = false

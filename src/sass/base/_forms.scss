@@ -1,0 +1,78 @@
+// Input
+//--------------------------------------
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea,
+.recaptcha_input_area input[type="text"] {
+  border-radius: 2px;
+  padding: 2px 0px 2px 5px;
+  border: 1px solid #aaa !important;
+  &:focus {}
+}
+
+// Submit Buttons
+//--------------------------------------
+input[type="submit"] {
+  font-weight: 500;
+  margin: 0;
+  padding: 10px 15px;
+  color: #fff;
+  border-top: none;
+  border-right: none;
+  // border-bottom: 2px solid darken($red, 10%);
+  border-left: none;
+  border-radius: 5px;
+  // background: $red;
+  box-shadow: none;
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+    // background: darken($red, 10%);
+
+  }
+}
+
+// Text areas
+//--------------------------------------
+.resizable-textarea .grippie {
+  border: 0;
+  background: none;
+}
+
+// Captcha
+//--------------------------------------
+fieldset.captcha {
+  padding: 0;
+  border: 0;
+  img#recaptcha_logo,
+  .fieldset-legend {
+    display: none;
+  }
+  .fieldset-description {
+    padding: 10px 0;
+  }
+}
+
+// Views
+//--------------------------------------
+.views-exposed-form .views-exposed-widget .form-submit {
+  // margin: 0;
+}
+
+// Webforms
+//------------------
+.node-type-webform {
+  .recaptchatable,
+  .recaptchatable #recaptcha_image {
+    border: 0 !important;
+  }
+}
+
+// Required fields
+//--------------------------------------
+.marker, .form-required {
+  // color: $red;
+}

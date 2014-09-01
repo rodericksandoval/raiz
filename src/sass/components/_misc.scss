@@ -1,0 +1,16 @@
+/**
+ * Hacks/Fixes/Tests
+ **************************************/
+
+// Themes Demo
+//--------------------------------------
+.page-admin-structure-block-demo {
+  #admin-menu,
+  .block-demo-backlink {
+    display: none;
+  }
+  .block-region {
+    margin: 0;
+    opacity: .8;
+  }
+}

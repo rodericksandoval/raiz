@@ -1,0 +1,67 @@
+// Images
+//--------------------------------------
+img {
+  max-width: 100%;
+  height: auto;
+  transition: .5s opacity;
+  a:hover & {
+    opacity: 0.8;
+  }
+}
+
+// Flexslider
+//--------------------------------------
+.flexslider {
+  margin: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  img {
+    display: block;
+  }
+}
+
+.flex-direction-nav a {
+  overflow: visible;
+  text-shadow: none;
+  // color:
+  &:hover {
+    // color:
+
+  }
+  &:before, &.flex-next:before {
+    font-family: $icon;
+    @include font-size(60px);
+  }
+  &:before {
+    content: "\f104";
+  }
+  &.flex-next:before {
+    content: "\f105";
+  }
+}
+
+.flex-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.flex-control-thumbs {
+  li {
+    @include gallery(3);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.video-embed-description {
+  @include font-size(16px);
+  margin: 0;
+  padding: 10px;
+  line-height: 1;
+  width: 100%;
+}

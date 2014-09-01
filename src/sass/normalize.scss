@@ -24,7 +24,7 @@ $rhythm-unit: "rem" !default;
 // Optional map of minimum browser versions to support. For example, to
 // remove support for IE 7 and earlier, set $browser-minimum-versions['ie']
 // to '8'.
-$browser-minimum-versions: ("chrome": null, "firefox": null, "ie": null, "safari": null, "opera": null) !default;
+$browser-minimum-versions: ("chrome": null, "firefox": null, "ie": "8", "safari": null, "opera": null) !default;
 
 // Set this to true to force CSS output to exactly match normalize.css.
 $strict-normalize: true !default;
@@ -41,14 +41,14 @@ $h5-font-size: 0.83 * $base-font-size !default;
 $h6-font-size: 0.67 * $base-font-size !default;
 
 // The amount lists and blockquotes are indented.
-$indent-amount: 40px !default;
+$indent-amount: 20px !default;
 
 // After the default variables are set, import the required Compass partials.
 @import "compass/support";
 @import "compass/css3/box-sizing";
 @import "compass/typography/vertical_rhythm";
 
-// To work around a bug in compass-core 1.0.0-alpha.17, we override Compass'
+// To work around a bug in compass-core 1.0.0.rc.0, we override Compass'
 // support-legacy-browser() function with a version of our own.
 // @TODO Remove this monkey patch after it's fixed in Compass.
 // @see https://github.com/chriseppstein/compass/pull/1524
@@ -57,20 +57,21 @@ $indent-amount: 40px !default;
   @if not index($supported-browsers, $browser) {
     @return false;
   }
-  // Check against declared minimums.
+  // Check agaist usage stats and declared minimums
   $min-required-version: map-get($browser-minimum-versions, $browser);
-  @if $min-required-version {
-    @return compare-browser-versions($browser, $max-version or $min-version, $min-required-version) >= 0;
+  $supported-browser: $min-required-version and compare-browser-versions($browser, $max-version or $min-version, $min-required-version) >= 0;
+  // If a minimum required version is specified and the default threshold is
+  // used, we only check the declared browser minimums.
+  @if $threshold == $critical-usage-threshold and $min-required-version {
+    @return $supported-browser;
   }
-  @else {
-    // Check against usage stats.
-    $usage: if($max-version, omitted-usage($browser, $min-version, $max-version), omitted-usage($browser, $min-version));
-    @return $usage > $threshold;
-  }
+  $usage: if($max-version, omitted-usage($browser, $min-version, $max-version), omitted-usage($browser, $min-version));
+  @return $usage > $threshold or $supported-browser;
 }
 
-/* Base
-========================================================= */
+/**
+ * Base
+ **********************************************************/
 
 @if not $strict-normalize or support-legacy-browser(ie, "7") {
   /**
@@ -106,8 +107,9 @@ body {
   margin: 0;
 }
 
-/* HTML5 display definitions
-========================================================= */
+/**
+ * HTML5 display definitions
+ **********************************************************/
 
 /**
  * Correct `block` display not defined in IE 8/9. Correct `block` display
@@ -177,8 +179,9 @@ template {
   display: none;
 }
 
-/* Links
-========================================================= */
+/**
+ * Links
+ **********************************************************/
 
 @if support-legacy-browser(ie, "10") {
   /**
@@ -198,8 +201,9 @@ a:hover {
   outline: 0;
 }
 
-/* Text-level semantics
-========================================================= */
+/**
+ * Text-level semantics
+ **********************************************************/
 
 /**
  * Address styling not present in IE, Safari 5, and Chrome.
@@ -353,8 +357,9 @@ sub {
 }
 
 @if not $strict-normalize or support-legacy-browser(ie, "7") {
-  /* Lists
-========================================================= */
+  /**
+   * Lists
+   **********************************************************/
   /**
    * Address margins set differently in IE 6/7.
    */
@@ -397,8 +402,9 @@ sub {
   }
 }
 
-/* Embedded content
-========================================================= */
+/**
+ * Embedded content
+ **********************************************************/
 
 @if support-legacy-browser(ie, "10") {
   /**
@@ -421,8 +427,9 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-/* Grouping content
-========================================================= */
+/**
+ * Grouping content
+ **********************************************************/
 
 @if support-legacy-browser(ie, "9") or support-legacy-browser(safari, "5") {
   /**
@@ -442,8 +449,9 @@ hr {
   height: 0;
 }
 
-/* Forms
-========================================================= */
+/**
+ * Forms
+ **********************************************************/
 
 /**
  * Known limitation: by default, Chrome and Safari on OS X allow very limited
@@ -667,8 +675,9 @@ optgroup {
   font-weight: bold;
 }
 
-/* Tables
-========================================================= */
+/**
+ * Tables
+ **********************************************************/
 
 /**
  * Remove most spacing between table cells.

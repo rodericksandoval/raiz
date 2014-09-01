@@ -1,14 +1,7 @@
-/**
- * Navigation
- **************************************/
-
-.l-branding {}
-
-.l-region-header {}
-
 .l-navigation {
-  // overflow: visible;
-  // padding: 0;
+  //   overflow: visible;
+  //   padding: 0;
+  background-color: #444;
 }
 
 /**
@@ -25,7 +18,7 @@
   ////// First level
   ul {
     @extend %ul-reset;
-    text-align: right;
+    text-align: center;
     li {
       @extend %inline-block;
       position: relative;
@@ -42,32 +35,33 @@
       &:hover ul {
         visibility: visible;
       }
-      &.expanded {
-        padding-right: 10px;
-        a {
-          padding-right: 20px;
-        }
-        &:after {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 40px;
-          height: 40px;
-          color: #333;
-          content: "\25BC";
-          text-align: center;
-          font-size: 12px;
-          line-height: 40px;
-          cursor: pointer;
-        }
-      }
+      // &.expanded {
+      //   padding-right: 10px;
+      //   a {
+      //     padding-right: 20px;
+      //   }
+      //   &:after {
+      //     position: absolute;
+      //     top: 0;
+      //     right: 0;
+      //     width: 40px;
+      //     height: 40px;
+      //     color: #333;
+      //     content: "\25BC";
+      //     text-align: center;
+      //     font-size: 12px;
+      //     line-height: 40px;
+      //     cursor: pointer;
+      //   }
+      // }
+
     }
   }
   ///// Second level
   ul ul {
     position: absolute;
     visibility: hidden;
-    background: $aqua;
+    // background: $aqua;
     text-align: left;
     li {
       display: block;
@@ -103,7 +97,7 @@
         display: block;
         width: 100%;
         border-bottom: solid 1px #000;
-        background: $aqua;
+        // background: $aqua;
         text-align: left;
         a {
           padding: 0 20px;
@@ -111,9 +105,9 @@
             border-radius: 0;
           }
         }
-        &.expanded {
-          padding-right: 0;
-        }
+        // &.expanded {
+        //   padding-right: 0;
+        // }
         &.last {
           border-bottom: none;
         }
