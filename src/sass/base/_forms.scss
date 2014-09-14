@@ -10,7 +10,9 @@ textarea,
   border-radius: 2px;
   padding: 2px 0px 2px 5px;
   border: 1px solid #aaa !important;
-  &:focus {}
+  &:focus {
+    outline: none;
+  }
 }
 
 // Submit Buttons
@@ -61,6 +63,19 @@ fieldset.captcha {
 .views-exposed-form .views-exposed-widget .form-submit {
   // margin: 0;
 }
+
+// Views
+//--------------------------------------
+// .views-exposed-widgets {
+//   margin: 0;
+// }
+
+// .views-exposed-form .views-exposed-widget {
+//   // padding: 0;
+//   .form-submit {
+//     margin: 0;
+//   }
+// }
 
 // Webforms
 //------------------

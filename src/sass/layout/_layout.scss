@@ -3,10 +3,10 @@
 // GLOBAL
 //----------------------------------------------------------
 //----------------------------------------------------------
-html, body {
-  overflow: hidden;
+body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .l-page {
@@ -21,30 +21,67 @@ html, body {
 .l-triptych,
 .l-footer-columns,
 .l-footer {
-  @extend %wide;
+  // @extend %wide;
 }
 
 // Top
 //--------------------------------------
+.l-header {}
+
 .l-utility-bar {
-  @include bg-img(bg-test);
+  background: cyan;
 }
 
-.l-branding {}
+.l-branding {
+  position: relative;
+  z-index: 10;
+  float: left;
+}
 
-.l-header-region {}
+.l-header-region {
+  float: right;
+}
 
-.l-navigation {}
+.l-navigation {
+  background: #eee;
+  @extend %wide;
+  // Below header
+  //------------------------------------
+  clear: both;
+  // Floating right
+  //------------------------------------
+  // float: right;
+  // clear: right;
+}
 
 // Main
 //--------------------------------------
-.l-featured {}
+.l-featured {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
-.l-above-main {}
+.l-above-main {
+  clear: both;
+  background: cyan;
+}
 
-.l-main {}
+.l-main {
+  // padding-top: 20px;
+  // padding-bottom: 20px;
+  min-height: 300px;
+  clear: both;
+}
 
-.l-below-main {}
+.l-main-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.l-below-main {
+  clear: both;
+  background: #aaa;
+}
 
 // Bottom
 //--------------------------------------
@@ -53,12 +90,11 @@ html, body {
 .l-footer-columns {}
 
 .l-footer {
+  @extend %wide;
+  clear: both;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #444;
-  a {
-    color: #fff;
-  }
+  background: #eee;
 }
 
 //----------------------------------------------------------
@@ -68,10 +104,12 @@ html, body {
 //----------------------------------------------------------
 @include respond-to(narrow) {
   .l-branding {
-    float: left;
+    // float: left;
+
   }
   .l-header-region {
-    float: right;
+    // float: right;
+
   }
   .sidebar-first,
   .sidebar-second,
@@ -125,7 +163,7 @@ html, body {
     .l-main-content {
       @include span(9);
       @include suffix(0.5);
-      border-right: 1px solid;
+      border-right: 1px solid #eee;
     }
     .l-sidebar-second {
       @include span(last 3);

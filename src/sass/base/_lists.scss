@@ -1,8 +1,7 @@
 // Menus
 //--------------------------------------
-.menu,
-ul.menu li {
-  @extend %ul-reset;
+.menu, ul.menu li {
+  @extend %list-reset;
   a {
     display: block;
   }
@@ -10,10 +9,13 @@ ul.menu li {
 
 // Lists reset
 //--------------------------------------
-ul,
+ol, ul {
+  @extend %list-reset;
+}
+
 ul li.leaf,
 ul li.expanded,
 ul.menu li,
 .item-list ul {
-  @extend %ul-reset;
+  @extend %list-reset;
 }

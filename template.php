@@ -111,7 +111,7 @@ function raiz_flexslider_list(&$vars) {
         $caption = $item['caption'];
       }
       // Build path to colorbox image style. Replace 'colorbox' with your image style name.
-      $colorbox_path = image_style_url('800x600', $item['item']['uri']);
+      $colorbox_path = image_style_url('colorbox', $item['item']['uri']);
       $image_options = array(
         'style_name' => $optionset->imagestyle_normal,
         'path'       => $item['item']['uri'],

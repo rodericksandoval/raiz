@@ -3,10 +3,10 @@
 img {
   max-width: 100%;
   height: auto;
-  transition: .5s opacity;
-  a:hover & {
-    opacity: 0.8;
-  }
+  // transition: .5s opacity;
+  // a:hover & {
+  //   opacity: 0.8;
+  // }
 }
 
 // Flexslider
@@ -31,7 +31,7 @@ img {
   }
   &:before, &.flex-next:before {
     font-family: $icon;
-    @include font-size(60px);
+    @include font-size(64px);
   }
   &:before {
     content: "\f104";

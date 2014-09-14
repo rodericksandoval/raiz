@@ -1,12 +1,5 @@
 //----------------------------------------------------------
 //----------------------------------------------------------
-// RESET
-//----------------------------------------------------------
-//----------------------------------------------------------
-// @import "compass/reset";
-
-//----------------------------------------------------------
-//----------------------------------------------------------
 // GRID
 //----------------------------------------------------------
 //----------------------------------------------------------
@@ -15,7 +8,7 @@
 //--------------------------------------
 @include border-box-sizing;
 
-$susy: (columns: 12, gutters: 0.25, math: fluid, container: 1240px, global-box-sizing: border-box, use-custom: (box-sizing: true, rem: true));
+$susy: (columns: 12, gutters: 0.25, math: fluid, container: 1064px, global-box-sizing: border-box, use-custom: (box-sizing: true, rem: true));
 
 // Placeholder - Container settings
 //--------------------------------------
@@ -34,15 +27,15 @@ $susy: (columns: 12, gutters: 0.25, math: fluid, container: 1240px, global-box-s
 
 // Breakpoints
 //--------------------------------------
-$mobile: 400px;
+// $mobile: 400px;
 $narrow: 768px;
-$normal: 1170px;
+$normal: 960px;
 
 // Mixin - Respond to breakpoint
 //--------------------------------------
 @mixin respond-to($breakpoint) {
   @if $breakpoint == "mobile" {
-    @media (max-width: $mobile) {
+    @media (max-width: $narrow) {
       @content;
     }
   }
@@ -63,19 +56,22 @@ $normal: 1170px;
   }
 }
 
+// Display Suite Reset
+//--------------------------------------
+// .group-header,
+// .group-left,
+// .group-middle,
+// .group-right,
+// .group-footer {
+//   clear: both;
+//   width: 100%;
+// }
+
 //----------------------------------------------------------
 //----------------------------------------------------------
 // TYPOGRAPHY
 //----------------------------------------------------------
 //----------------------------------------------------------
-
-// Base font size
-//--------------------------------------
-$base-font-size: 16px;
-$base-line-height: 24px;
-$rhythm-unit: "rem";
-
-@include establish-baseline($base-font-size);
 
 // Custom fonts
 //--------------------------------------
@@ -92,6 +88,18 @@ $rhythm-unit: "rem";
 
 $icon: "fontawesome";
 $roboto: "Roboto", sans-serif;
+
+// Base Typography
+//--------------------------------------
+$base-font-size: 16px;
+$base-line-height: 24px;
+$rhythm-unit: "rem";
+
+// $base-font-family: sans-serif;
+// $base-font-weight: 400;
+// $base-font-color: #222;
+
+@include establish-baseline($base-font-size);
 
 // Font families
 //--------------------------------------
@@ -188,7 +196,7 @@ $youtube: #bb0000;
 
 // Sass Map - Icons
 //--------------------------------------
-$icons: (info: "\f129", nav: "\f0c9", search: "\f002", facebook: "\f09a", twitter: "\f099", google: "\f0d5", youtube: "\f167", email: "\f003", star: "\f005", left: "\f104", right: "\f105", top: "\f106", link: "\f08e");
+$icons: (info: "\f129", nav: "\f0c9", search: "\f002", facebook: "\f09a", twitter: "\f099", google: "\f0d5", youtube: "\f167", email: "\f003", star: "\f005", left: "\f104", right: "\f105", up: "\f106", down: "\f107", link: "\f08e");
 
 // Function - Icons
 //--------------------------------------
@@ -266,7 +274,7 @@ $icons: (info: "\f129", nav: "\f0c9", search: "\f002", facebook: "\f09a", twitte
 
 // Placeholder - Image replacement
 //--------------------------------------
-%image-replace {
+%replace-image {
   overflow: hidden;
   white-space: nowrap;
   text-indent: 100%;
@@ -287,7 +295,7 @@ $icons: (info: "\f129", nav: "\f0c9", search: "\f002", facebook: "\f09a", twitte
 // Placeholder - Sprite image with PNG fallback static setings
 //--------------------------------------
 %sprite {
-  @extend %image-replace;
+  @extend %replace-image;
   display: block;
   background-image: url(../img/sprite.svg);
   background-repeat: no-repeat;
@@ -322,7 +330,7 @@ $icons: (info: "\f129", nav: "\f0c9", search: "\f002", facebook: "\f09a", twitte
 
 // Placeholder - Lists reset
 //------------------
-%ul-reset {
+%list-reset {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -332,6 +340,15 @@ $icons: (info: "\f129", nav: "\f0c9", search: "\f002", facebook: "\f09a", twitte
 // Placeholder - Inline-block
 //------------------
 %inline-block {
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+  *display: inline;
+}
+
+// Mixin - Inline-block
+//------------------
+@mixin inline-block {
   display: inline-block;
   zoom: 1;
   vertical-align: middle;

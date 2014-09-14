@@ -7,11 +7,10 @@
 // Logo
 //--------------------------------------
 h1.site-name {
-  // float: left;
   margin: 0;
   a {
-    @include sprite(200px, 60px, 35px 20px);
-    // background-color: #eee;
+    @include sprite(170px, 90px, 20px 10px);
+    // background-color: cyan;
 
   }
 }

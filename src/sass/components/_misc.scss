@@ -4,11 +4,20 @@
 
 // Themes Demo
 //--------------------------------------
+body.admin-menu.page-admin-structure-block-demo {
+  margin-top: 0 !important;
+}
+
 .page-admin-structure-block-demo {
-  #admin-menu,
-  .block-demo-backlink {
+  #admin-menu {
     display: none;
   }
+  // .block-demo-backlink {
+  //   display: none;
+  // }
+  // a.block-demo-backlink {
+  //   background-color: transparent;
+  // }
   .block-region {
     margin: 0;
     opacity: .8;
