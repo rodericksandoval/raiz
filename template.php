@@ -1,5 +1,11 @@
 <?php
 
+//----------------------------------------------------------
+//----------------------------------------------------------
+// HEAD
+//----------------------------------------------------------
+//----------------------------------------------------------
+
 /**
  * Implements hook_html_head_alter().
  */
@@ -13,65 +19,69 @@ function raiz_html_head_alter(&$head_elements) {
 }
 
 
+//----------------------------------------------------------
+//----------------------------------------------------------
+// CSS CLEANUP
+//----------------------------------------------------------
+//----------------------------------------------------------
+
 /**
- * Implements hook_preprocess_html().
+ * Implements hook_css_alter().
  */
-function raiz_preprocess_html(&$variables) {
-  // Charset
-  $meta_charset = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'charset' => 'utf-8',
-    ),
+function raiz_css_alter(&$css) {
+
+  $exclude = array(
+  // Remove Drupal Core CSS
+    'modules/aggregator/aggregator.css' => FALSE,
+    'modules/block/block.css' => FALSE,
+    'modules/book/book.css' => FALSE,
+    'modules/comment/comment.css' => FALSE,
+    'modules/dblog/dblog.css' => FALSE,
+    'modules/field/theme/field.css' => FALSE,
+    'modules/file/file.css' => FALSE,
+    'modules/filter/filter.css' => FALSE,
+    'modules/forum/forum.css' => FALSE,
+    'modules/help/help.css' => FALSE,
+    'modules/menu/menu.css' => FALSE,
+    'modules/node/node.css' => FALSE,
+    'modules/openid/openid.css' => FALSE,
+    'modules/poll/poll.css' => FALSE,
+    'modules/profile/profile.css' => FALSE,
+    'modules/search/search.css' => FALSE,
+    'modules/statistics/statistics.css' => FALSE,
+    'modules/syslog/syslog.css' => FALSE,
+    'modules/system/admin.css' => FALSE,
+    'modules/system/maintenance.css' => FALSE,
+    'modules/system/system.css' => FALSE,
+    'modules/system/system.admin.css' => FALSE,
+    // 'modules/system/system.base.css' => FALSE,
+    'modules/system/system.maintenance.css' => FALSE,
+    'modules/system/system.messages.css' => FALSE,
+    // 'modules/system/system.menus.css' => FALSE,
+    // 'modules/system/system.theme.css' => FALSE,
+    'modules/taxonomy/taxonomy.css' => FALSE,
+    'modules/tracker/tracker.css' => FALSE,
+    'modules/update/update.css' => FALSE,
+    'modules/user/user.css' => FALSE,
+    'misc/vertical-tabs.css' => FALSE,
+
+  // Remove Contrib Modules CSS
+    // Display Suite Layouts CSS (TODO: turn into array)
+    drupal_get_path('module', 'ds') . '/layouts/ds_2col/ds_2col.css' => FALSE,
+    drupal_get_path('module', 'ds') . '/layouts/ds_2col_stacked/ds_2col_stacked.css' => FALSE,
+    drupal_get_path('module', 'ds') . '/layouts/ds_3col/ds_3col.css' => FALSE,
+    drupal_get_path('module', 'ds') . '/layouts/ds_3col_stacked/ds_3col_stacked.css' => FALSE,
   );
-  drupal_add_html_head($meta_charset, 'meta_charset');
-  // Compatibility
-  $meta_x_ua_compatible = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'http-equiv' => 'x-ua-compatible',
-      'content' => 'ie=edge, chrome=1',
-    ),
-  );
-  drupal_add_html_head($meta_x_ua_compatible, 'meta_x_ua_compatible');
-  // MobileOptimized
-  $meta_mobile_optimized = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'MobileOptimized',
-      'content' => 'width',
-    ),
-  );
-  drupal_add_html_head($meta_mobile_optimized, 'meta_mobile_optimized');
-  // HandheldFriendly
-  $meta_handheld_friendly = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'HandheldFriendly',
-      'content' => 'true',
-    ),
-  );
-  drupal_add_html_head($meta_handheld_friendly, 'meta_handheld_friendly');
-  // Viewport
-  $meta_viewport = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'viewport',
-      'content' => 'width=device-width, initial-scale=1, minimal-ui',
-    ),
-  );
-  drupal_add_html_head($meta_viewport, 'meta_viewport');
-  // Cleartype
-  $meta_cleartype = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'http-equiv' => 'cleartype',
-      'content' => 'on',
-    ),
-  );
-  drupal_add_html_head($meta_cleartype, 'meta_cleartype');
+
+  $css = array_diff_key($css, $exclude);
 }
 
+
+//----------------------------------------------------------
+//----------------------------------------------------------
+// REGION WRAPPERS CLEANUP
+//----------------------------------------------------------
+//----------------------------------------------------------
 
 /**
  * Implements hook_page_alter().
@@ -90,46 +100,30 @@ function raiz_page_alter(&$page) {
 }
 
 
+//----------------------------------------------------------
+//----------------------------------------------------------
+// SEACH
+//----------------------------------------------------------
+//----------------------------------------------------------
+
 /**
- * Overriding flexslider_list theme implementation to output colorbox enabled images
- * https://www.drupal.org/node/1553648
+ * Implements hook_form_FORM_ID_alter().
  */
-function raiz_flexslider_list(&$vars) {
-  // Reference configuration variables
-  $optionset = &$vars['settings']['optionset'];
-  $items = &$vars['items'];
-  $attributes = &$vars['settings']['attributes'];
-  $type = &$vars['settings']['type'];
-  $output = '';
-  $group = $optionset->title;
-  // Build the list
-  if (!empty($items)) {
-    $output .= "<$type" . drupal_attributes($attributes) . '>';
-    foreach ($items as $i => $item) {
-      $caption = '';
-      if (!empty($item['caption'])) {
-        $caption = $item['caption'];
-      }
-      // Build path to colorbox image style. Replace 'colorbox' with your image style name.
-      $colorbox_path = image_style_url('colorbox', $item['item']['uri']);
-      $image_options = array(
-        'style_name' => $optionset->imagestyle_normal,
-        'path'       => $item['item']['uri'],
-        'height'     => $item['item']['height'],
-        'width'      => $item['item']['width'],
-        'alt'        => $item['item']['alt'],
-        'title'      => $item['item']['title'],
-      );
-      $item['slide'] = theme('colorbox_imagefield', array('image' => $image_options, 'path' => $colorbox_path, 'title' => $caption, 'gid' => array('rel' => $group)));
-      $output .= theme('flexslider_list_item', array(
-        'item' => $item['slide'],
-        'settings' => array(
-          'optionset' => $optionset,
-        ),
-        'caption' => $caption,
-      ));
-    }
-    $output .= "</$type>";
-  }
-  return $output;
+function raiz_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+ // Add placeholder text to the search block form.
+  $form['search_block_form']['#attributes']['placeholder'] = t('Search');
+  // Replace the form submit value.
+  $form['actions']['submit']['#name'] = t('Search');
+  $form['actions']['submit']['#value'] = decode_entities("&#xf002;");
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function raiz_form_search_form_alter(&$form, &$form_state, $form_id) {
+ // Add placeholder text to the search block form.
+  $form['search_form']['#attributes']['placeholder'] = t('Search');
+  // Replace the form submit value.
+  $form['basic']['submit']['#name'] = t('Search');
+  $form['basic']['submit']['#value'] = decode_entities("&#xf002;");
 }

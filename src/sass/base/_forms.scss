@@ -7,9 +7,11 @@ input[type="search"],
 input[type="number"],
 textarea,
 .recaptcha_input_area input[type="text"] {
-  border-radius: 2px;
+  box-sizing: border-box;
+  max-width: 100%;
   padding: 2px 0px 2px 5px;
   border: 1px solid #aaa !important;
+  border-radius: 2px;
   &:focus {
     outline: none;
   }
@@ -26,7 +28,7 @@ input[type="submit"] {
   border-right: none;
   // border-bottom: 2px solid darken($red, 10%);
   border-left: none;
-  border-radius: 5px;
+  border-radius: 4px;
   // background: $red;
   box-shadow: none;
   &:hover {
@@ -60,22 +62,16 @@ fieldset.captcha {
 
 // Views
 //--------------------------------------
-.views-exposed-form .views-exposed-widget .form-submit {
-  // margin: 0;
+.views-exposed-widgets {
+  margin: 0;
 }
 
-// Views
-//--------------------------------------
-// .views-exposed-widgets {
-//   margin: 0;
-// }
-
-// .views-exposed-form .views-exposed-widget {
-//   // padding: 0;
-//   .form-submit {
-//     margin: 0;
-//   }
-// }
+.views-exposed-form .views-exposed-widget {
+  padding: 0;
+  .form-submit {
+    margin: 0;
+  }
+}
 
 // Webforms
 //------------------

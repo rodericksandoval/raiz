@@ -1,0 +1,104 @@
+@mixin cf {
+  zoom: 1;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//--------------------------------------
+//--------------------------------------
+//--------------------------------------
+
+// Font Size
+//--------------------------------------
+@mixin font-size($font-size) {
+  font-size: $font-size;
+  font-size: $font-size / $base-font-size * 1rem;
+}
+
+// Inline Block
+//--------------------------------------
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  zoom: 1;
+}
+
+// SVG background image with PNG fallback
+//--------------------------------------
+@mixin bg-img($name, $size: false) {
+  background-image: url(../img/#{$name}.svg);
+  @if $size {
+    background-size: $size;
+  }
+  .no-svg & {
+    background-image: url(../img/#{$name}.png);
+  }
+}
+
+// Sprite
+//--------------------------------------
+@mixin sprite($width: false, $height: false, $position: false) {
+  @extend %sprite;
+  @if $width {
+    width: $width;
+  }
+  @if $height {
+    height: $height;
+  }
+  @if $position {
+    background-position: $position;
+  }
+}
+
+// Button
+//--------------------------------------
+@mixin btn($color) {
+  @extend %btn;
+  a {
+    background: $color;
+    border-bottom: 2px solid darken($color, 10%);
+    &:hover {
+      background: darken($color, 10%);
+    }
+  }
+}
+
+// IE Fallback
+//--------------------------------------
+@mixin fallback {
+  @if $breakpoint-no-queries == true {
+    .lt-ie9 & {
+      @content;
+    }
+  }
+}
+
+// Opacity
+//--------------------------------------
+@mixin opacity($opacity) {
+  $opacityIE: $opacity * 100;
+  opacity: $opacity;
+  filter: alpha(opacity = $opacityIE);
+}
+
+// Icon Before
+//--------------------------------------
+@mixin icon-before($content) {
+  @extend %icon-before;
+  &:before {
+    content: icon($content);
+  }
+}
+
+// Icon After
+//--------------------------------------
+@mixin icon-after($content) {
+  @extend %icon-after;
+  &:after {
+    content: icon($content);
+  }
+}

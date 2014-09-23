@@ -1,4 +1,5 @@
 # Plugins
+require 'breakpoint'
 require 'susy'
 
 # Resources
@@ -9,6 +10,7 @@ javascripts_dir = "../js"
 fonts_dir       = "../fonts"
 
 # Paths
+# http_path = "/sites/all/themes/raiz/"
 # relative_assets = true
 
 # Debugging

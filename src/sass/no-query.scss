@@ -1,0 +1,9 @@
+// Do not print media queries
+$breakpoint-no-queries: true;
+
+// Print No Query Fallbacks
+// $breakpoint-no-query-fallbacks: ".lt-ie9" !global;
+$breakpoint-no-query-fallbacks: true;
+
+// Re-render style.scss, without media queries.
+@import "style";

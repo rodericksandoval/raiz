@@ -1,0 +1,10 @@
+// Susy global settings
+//--------------------------------------
+@include border-box-sizing;
+
+$susy: (columns: 12, gutters: 0.25, math: fluid, container: 1064px, global-box-sizing: border-box, use-custom: (box-sizing: true, rem: true));
+
+// Breakpoints
+//--------------------------------------
+$narrow: 768px;
+$normal: 960px, "no-query" ".lt-ie9";

@@ -1,37 +1,38 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display the basic html structure of a single
  * Drupal page.
  */
 ?>
+
 <!doctype html>
-<!--[if IE 8]><html class="lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if lt IE 7]>     <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]>        <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]>        <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>" class="no-js"><!--<![endif]-->
 
-<head>
-  <?php print $head; ?>
-  <title><?php print $head_title; ?></title>
-  <?php print $styles; ?>
-  <?php print $scripts; ?>
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="cleartype" content="on">
+    <title><?php print $head_title; ?></title>
+    <?php print $head; ?>
+    <?php print $styles; ?>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <?php print $scripts; ?>
+  </head>
 
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
-  <!--[if lt IE 8]>
-    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-  <![endif]-->
-
-  <div id="skip-link">
+  <body class="<?php print $classes; ?>" <?php print $attributes;?>>
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
-  </div>
+    <?php print $page_top; ?>
+    <?php print $page; ?>
+    <?php print $page_bottom; ?>
+  </body>
 
-  <?php print $page_top; ?>
-  <?php print $page; ?>
-  <?php print $page_bottom; ?>
-
-</body>
 </html>

@@ -4,13 +4,12 @@
 //----------------------------------------------------------
 //----------------------------------------------------------
 
-// Logo
+// Branding
 //--------------------------------------
 h1.site-name {
   margin: 0;
   a {
-    @include sprite(170px, 90px, 20px 10px);
-    // background-color: cyan;
-
+    @include sprite(280px, 100px, 20px 20px);
+    background-color: cyan;
   }
 }

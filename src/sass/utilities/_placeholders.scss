@@ -1,0 +1,164 @@
+// Center-align a block level element
+// ----------------------------------
+%center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Menu
+// -------------------------
+%menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Horizontal menu
+// -------------------------
+%horizontal-menu {
+  @extend %menu;
+  font-size: 0;
+  li {
+    display: inline-block;
+    font-size: $base-font-size;
+  }
+}
+
+//--------------------------------------
+//--------------------------------------
+//--------------------------------------
+
+// Container
+//--------------------------------------
+%container {
+  @include container;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+// Wide Container
+//--------------------------------------
+%wide {
+  @include bleed-x(100%);
+  @include pie-clearfix;
+}
+
+// Clearfix
+//--------------------------------------
+%clearfix {
+  @include pie-clearfix;
+}
+
+// Lists Reset
+//--------------------------------------
+%list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+// Inline Block
+//--------------------------------------
+%inline-block {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  zoom: 1;
+}
+
+// Image replacement
+//--------------------------------------
+%replace-image {
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+}
+
+// Sprite image with PNG fallback static setings
+//--------------------------------------
+%sprite {
+  @extend %replace-image;
+  display: block;
+  background-image: url(../img/sprite.svg);
+  background-repeat: no-repeat;
+  .no-svg & {
+    background-image: url(../img/sprite.png);
+  }
+}
+
+// Button Static Setings
+//--------------------------------------
+%btn {
+  display: block;
+  margin: 20px 0;
+  a {
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: #fff;
+    &:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+// Frame
+//--------------------------------------
+%frame {
+  padding: 10px;
+  background: #fff;
+  // box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+// Rounded Frame
+//--------------------------------------
+%rounded-frame {
+  @extend %frame;
+  border-radius: 4px;
+}
+
+// Icon before static settings
+//--------------------------------------
+%icon-before {
+  &:before {
+    @extend %inline-block;
+    vertical-align: baseline !important;
+    font: {
+      family: $icon;
+      style: normal;
+      weight: normal;
+      variant: normal;
+    };
+    text: {
+      decoration: inherit;
+      transform: none;
+    };
+    speak: none;
+    line-height: 1em;
+    width: 1em;
+  }
+}
+
+// Icon after static settings
+//--------------------------------------
+%icon-after {
+  &:after {
+    @extend %inline-block;
+    vertical-align: baseline !important;
+    font: {
+      family: $icon;
+      style: normal;
+      weight: normal;
+      variant: normal;
+    };
+    text: {
+      decoration: inherit;
+      transform: none;
+    };
+    speak: none;
+    line-height: 1em;
+    width: 1em;
+  }
+}

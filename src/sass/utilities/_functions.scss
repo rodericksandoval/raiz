@@ -1,0 +1,11 @@
+// Sass Map - Icons
+//--------------------------------------
+$icons: (home: "\f015", info: "\f129", nav: "\f0c9", search: "\f002", rss: "\f09e", facebook: "\f09a", twitter: "\f099", google: "\f0d5", youtube: "\f167", vimeo: "\f194", linkedin: "\f0e1", email: "\f003", comment: "\f075", chat: "\f086", up: "\f106", down: "\f107", right: "\f105", left: "\f104", photo: "\f030", video: "\f16a", tags: "\f02c", globe: "\f0ac", date: "\f073", author: "\f040", link: "\f08e");
+
+// Function - Icons
+//--------------------------------------
+@function icon($key) {
+  @if map-has-key($icons, $key) {
+    @return map-get($icons, $key);
+  }
+}

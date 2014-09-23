@@ -15,11 +15,29 @@ body.admin-menu.page-admin-structure-block-demo {
   // .block-demo-backlink {
   //   display: none;
   // }
-  // a.block-demo-backlink {
-  //   background-color: transparent;
-  // }
+  a.block-demo-backlink {
+    background-color: transparent;
+    top: 60px;
+    left: 0;
+  }
   .block-region {
     margin: 0;
     opacity: .8;
   }
 }
+
+// Pager
+//--------------------------------------
+// .item-list .pager {
+//   clear: both;
+//   text-align: center;
+// }
+// .item-list .pager li {
+//   background-image: none;
+//   display: inline;
+//   list-style-type: none;
+//   padding: 0.5em;
+// }
+// .pager-current {
+//   font-weight: bold;
+// }

@@ -3,7 +3,8 @@
 // GLOBAL
 //----------------------------------------------------------
 //----------------------------------------------------------
-body {
+
+html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -14,23 +15,42 @@ body {
 }
 
 .l-utility-bar,
-.l-navigation,
+.l-header,
 .l-featured,
 .l-above-main,
+.l-main,
 .l-below-main,
 .l-triptych,
 .l-footer-columns,
 .l-footer {
-  // @extend %wide;
+  @extend %clearfix;
+}
+
+// Overlay
+//--------------------------------------
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.modal {
+  visibility: hidden;
+}
+
+.modal-show {
+  visibility: visible;
 }
 
 // Top
 //--------------------------------------
 .l-header {}
 
-.l-utility-bar {
-  background: cyan;
-}
+.l-utility-bar {}
 
 .l-branding {
   position: relative;
@@ -61,27 +81,16 @@ body {
   padding-bottom: 20px;
 }
 
-.l-above-main {
-  clear: both;
-  background: cyan;
-}
+.l-above-main {}
 
-.l-main {
-  // padding-top: 20px;
-  // padding-bottom: 20px;
-  min-height: 300px;
-  clear: both;
-}
+.l-main {}
 
 .l-main-content {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.l-below-main {
-  clear: both;
-  background: #aaa;
-}
+.l-below-main {}
 
 // Bottom
 //--------------------------------------
@@ -91,7 +100,6 @@ body {
 
 .l-footer {
   @extend %wide;
-  clear: both;
   padding-top: 20px;
   padding-bottom: 20px;
   background: #eee;
@@ -102,7 +110,10 @@ body {
 // NARROW
 //----------------------------------------------------------
 //----------------------------------------------------------
-@include respond-to(narrow) {
+/**
+ * NARROW
+ **********************************************************/
+@include breakpoint($narrow) {
   .l-branding {
     // float: left;
 
@@ -148,7 +159,10 @@ body {
 // NORMAL
 //----------------------------------------------------------
 //----------------------------------------------------------
-@include respond-to(normal) {
+/**
+ * NORMAL
+ **********************************************************/
+@include breakpoint($normal, $no-query: true) {
   .sidebar-first {
     .l-main-content {
       @include span(last 9);
@@ -197,11 +211,3 @@ body {
     @include span(last 3);
   }
 }
-
-
-//----------------------------------------------------------
-//----------------------------------------------------------
-// WIDE
-//----------------------------------------------------------
-//----------------------------------------------------------
-// @include respond-to(wide) {}

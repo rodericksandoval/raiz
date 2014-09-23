@@ -9,13 +9,13 @@
 
 // Lists reset
 //--------------------------------------
-ol, ul {
-  @extend %list-reset;
-}
+// ol, ul {
+//   @extend %list-reset;
+// }
 
-ul li.leaf,
-ul li.expanded,
-ul.menu li,
-.item-list ul {
-  @extend %list-reset;
-}
+// ul li.leaf,
+// ul li.expanded,
+// ul.menu li,
+// .item-list ul {
+//   @extend %list-reset;
+// }

@@ -66,7 +66,7 @@ audio:not([controls]) {
 // 2. Improve readability when focused and also mouse hovered in all browsers.
 a {
   // 1
-  background: transparent;
+  background-color: transparent;
   // 2
   &:active, &:hover {
     outline: 0;

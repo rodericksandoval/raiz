@@ -1,13 +1,22 @@
 // PLUGINS
 //----------------------------------------------------------
 @import "compass";
+@import "breakpoint";
 @import "susy";
+
+// UTILITIES
+//----------------------------------------------------------
+@import "utilities/normalize";
+@import "utilities/grid";
+@import "utilities/typography";
+@import "utilities/color";
+@import "utilities/functions";
+@import "utilities/placeholders";
+@import "utilities/mixins";
 
 /**
  * BASE
  **********************************************************/
-@import "base/normalize";
-@import "base/tools";
 @import "base/typography";
 @import "base/lists";
 @import "base/forms";
@@ -22,6 +31,7 @@
  **********************************************************/
 @import "components/navigation";
 @import "components/media";
+@import "components/search";
 @import "components/pages";
 @import "components/blocks";
 @import "components/misc";

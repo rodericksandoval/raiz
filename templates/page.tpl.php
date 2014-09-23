@@ -1,5 +1,6 @@
 <div class="l-page" role="document">
 
+<div class="l-container">
 
 <?php if ($page['utility_bar']): ?>
   <nav class="l-utility-bar"><?php print render($page['utility_bar']); ?></nav>
@@ -8,14 +9,21 @@
 
 <header class="l-header" role="banner">
 
-  <div class="l-branding">
-    <?php if ($site_name): ?>
-      <h1 class="site-name"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a></h1>
-    <?php endif; ?>
-    <?php if ($site_slogan): ?>
-      <h2 class="site-slogan"><?php print $site_slogan; ?></h2>
-    <?php endif; ?>
-  </div>
+  <?php if ($logo || $site_name || $site_slogan): ?>
+    <div class="l-branding">
+      <?php if ($logo): ?>
+        <div class="site-logo">
+          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+        </div>
+      <?php endif; ?>
+      <?php if ($site_name): ?>
+        <h1 class="site-name"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a></h1>
+      <?php endif; ?>
+      <?php if ($site_slogan): ?>
+        <h2 class="site-slogan"><?php print $site_slogan; ?></h2>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
 
   <?php if ($page['header']): ?>
     <div class="l-header-region"><?php print render($page['header']); ?></div>
@@ -42,13 +50,6 @@
 
 <!--<?php if ($breadcrumb): ?><?php print $breadcrumb; ?><?php endif; ?>-->
 
-  <?php print $messages; ?>
-  <?php print render($tabs); ?>
-  <?php print render($page['help']); ?>
-  <?php if ($action_links): ?>
-    <ul class="action-links"><?php print render($action_links); ?></ul>
-  <?php endif; ?>
-
   <div class="l-main-content" role="article">
 
     <?php if ($page['highlighted']): ?>
@@ -57,12 +58,32 @@
       </div>
     <?php endif; ?>
 
-    <a id="main-content"></a>
-    <?php print render($title_prefix); ?>
-    <?php if ($title): ?>
-      <h1 class="page-title"><?php print $title; ?></h1>
+    <?php if($messages): ?>
+      <div class="drupal-messages">
+        <?php print $messages; ?>
+      </div>
     <?php endif; ?>
-    <?php print render($title_suffix); ?>
+
+    <a id="main-content"></a>
+
+    <?php if ($title && !$is_front): ?>
+      <?php print render($title_prefix); ?>
+        <h1 class="page-title"><?php print $title; ?></h1>
+      <?php print render($title_suffix); ?>
+    <?php endif; ?>
+
+    <?php if ($tabs): ?>
+      <nav class="admin-tabs">
+        <?php print render($tabs); ?>
+      </nav>
+    <?php endif; ?>
+
+    <?php print render($page['help']); ?>
+
+    <?php if ($action_links): ?>
+      <ul class="action-links"><?php print render($action_links); ?></ul>
+    <?php endif; ?>
+
     <?php print render($page['content']); ?>
     <?php print $feed_icons; ?>
   </div>
@@ -106,6 +127,7 @@
   <?php print render($page['footer']); ?>
 </footer>
 
-
+</div>
 </div><!--page-->
 
+<div class="modal"><div class="overlay"></div></div>
